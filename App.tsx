@@ -35,7 +35,7 @@ const App: React.FC = () => {
     <Router>
       <LanguageProvider>
         <ScrollToTop />
-        <div className="min-h-screen bg-dark text-white font-sans selection:bg-neon selection:text-black flex flex-col">
+        <div className="min-h-screen bg-white text-dark font-sans selection:bg-neon selection:text-black flex flex-col">
           <Header />
           <main className="flex-grow">
             <Routes>

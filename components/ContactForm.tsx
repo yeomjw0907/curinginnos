@@ -80,25 +80,23 @@ const ContactForm: React.FC = () => {
     }, 1500);
   };
 
-  const inputClasses = "w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-electric focus:ring-1 focus:ring-electric transition-all placeholder-gray-500";
-  const labelClasses = "block text-sm font-medium text-gray-400 mb-1";
+  const inputClasses = "w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-black focus:outline-none focus:border-electric focus:ring-1 focus:ring-electric transition-all placeholder-gray-400";
+  const labelClasses = "block text-sm font-medium text-gray-500 mb-1";
   const errorClasses = "text-red-500 text-xs mt-1 absolute";
 
   return (
-    <section id="contact" className="py-24 bg-dark relative">
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-electric/10 to-transparent pointer-events-none" />
-      
+    <section id="contact" className="py-24 bg-[#F5F5F7] relative">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.contact.title}</h2>
-            <p className="text-gray-400">{t.contact.subtitle}</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-black">{t.contact.title}</h2>
+            <p className="text-gray-500">{t.contact.subtitle}</p>
         </div>
 
         <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 md:p-12 rounded-3xl"
+            className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100"
         >
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -142,10 +140,10 @@ const ContactForm: React.FC = () => {
                             onChange={(e) => setFormData({...formData, type: e.target.value})}
                             className={`${inputClasses} ${errors.type ? 'border-red-500' : ''} appearance-none`}
                         >
-                            <option value="" disabled className="bg-dark text-gray-500">{t.contact.form.typePlaceholder}</option>
-                            <option value="purchase" className="bg-dark">{t.contact.form.types.purchase}</option>
-                            <option value="b2b" className="bg-dark">{t.contact.form.types.b2b}</option>
-                            <option value="partnership" className="bg-dark">{t.contact.form.types.partnership}</option>
+                            <option value="" disabled className="text-gray-400">{t.contact.form.typePlaceholder}</option>
+                            <option value="purchase">{t.contact.form.types.purchase}</option>
+                            <option value="b2b">{t.contact.form.types.b2b}</option>
+                            <option value="partnership">{t.contact.form.types.partnership}</option>
                         </select>
                         {errors.type && <span className={errorClasses}>{errors.type}</span>}
                     </div>
@@ -268,9 +266,9 @@ const ContactForm: React.FC = () => {
                         id="privacy"
                         checked={formData.privacy}
                         onChange={(e) => setFormData({...formData, privacy: e.target.checked})}
-                        className="w-5 h-5 rounded border-gray-600 text-electric focus:ring-electric bg-dark/50"
+                        className="w-5 h-5 rounded border-gray-300 text-electric focus:ring-electric"
                     />
-                    <label htmlFor="privacy" className="text-sm text-gray-400 cursor-pointer select-none">
+                    <label htmlFor="privacy" className="text-sm text-gray-500 cursor-pointer select-none">
                         {t.contact.form.privacy}
                     </label>
                      {errors.privacy && <span className="text-red-500 text-xs absolute -bottom-5 left-0">Required</span>}
@@ -279,7 +277,7 @@ const ContactForm: React.FC = () => {
                 <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-electric to-blue-600 hover:from-blue-600 hover:to-electric text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-electric/25 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+                    className="w-full bg-black text-white hover:bg-gray-800 font-bold py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed mt-4"
                 >
                     {isSubmitting ? (
                         <Loader2 className="animate-spin" />
