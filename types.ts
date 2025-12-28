@@ -1,6 +1,7 @@
 export type Language = 'ko' | 'en';
 
 export interface Translation {
+  lang: Language;
   nav: {
     brand: string;
     brandItems: {
@@ -32,6 +33,48 @@ export interface Translation {
     title: string;
     subtitle: string;
     cta: string;
+  };
+  latestNotices: {
+    title: string;
+    viewAll: string;
+    new: string;
+  };
+  partners: {
+    title: string;
+  };
+  stats: {
+    title: string;
+    items: { value: string; label: string }[];
+  };
+  features: {
+    title: string;
+    subtitle: string;
+    items: { title: string; desc: string; icon: string }[];
+  };
+  products: {
+    title: string;
+    subtitle: string;
+    cta: string;
+  };
+  howItWorks: {
+    title: string;
+    subtitle: string;
+    steps: { number: string; title: string; desc: string }[];
+  };
+  testimonials: {
+    title: string;
+    subtitle: string;
+    items: { name: string; role: string; comment: string; rating: number }[];
+  };
+  press: {
+    title: string;
+    subtitle: string;
+  };
+  finalCta: {
+    title: string;
+    subtitle: string;
+    primary: string;
+    secondary: string;
   };
   productsPage: {
     title: string;
@@ -126,6 +169,21 @@ export interface Translation {
       app: string;
       catalog: string;
       companyProfile: string;
+      brandAssets: string;
+    };
+    pages: {
+      guides: {
+        label: string;
+        subtitle: string;
+      };
+      marketing: {
+        label: string;
+        subtitle: string;
+      };
+      company: {
+        label: string;
+        subtitle: string;
+      };
     };
     download: string;
   };
@@ -135,6 +193,33 @@ export interface Translation {
     faq: string;
     manuals: string;
     board: string;
+    sections: {
+      faqDesc: string;
+      manualsDesc: string;
+      boardDesc: string;
+    };
+    contactSection: {
+      title: string;
+      subtitle: string;
+      button: string;
+    };
+    pages: {
+      faq: {
+        subtitle: string;
+        empty: string;
+      };
+      manuals: {
+        subtitle: string;
+        empty: string;
+        all: string;
+      };
+      board: {
+        subtitle: string;
+        date: string;
+        title: string;
+        author: string;
+      };
+    };
     faqItems: { category: string; q: string; a: string }[];
     boardItems: { id: number; date: string; title: string; author: string; content: string }[];
   };
@@ -168,11 +253,34 @@ export interface Translation {
     };
   };
   footer: {
+    disclaimers: string[];
+    sections: {
+      shopLearn: string;
+      resources: string;
+      support: string;
+      company: string;
+    };
+    links: {
+      standard: string;
+      manager: string;
+      app: string;
+      guides: string;
+      mediaKit: string;
+      faq: string;
+      manuals: string;
+      contactUs: string;
+      about: string;
+      newsroom: string;
+      partnerships: string;
+    };
+    moreWays: string;
+    contactAction: string;
+    or: string;
+    call: string;
     privacy: string;
     terms: string;
-    news: string;
-    contactLink: string;
-    inquiryLabel: string;
+    legal: string;
+    siteMap: string;
     companyName: string;
     owner: string;
     bizId: string;

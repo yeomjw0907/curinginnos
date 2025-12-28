@@ -1,137 +1,102 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLanguage } from './LanguageContext';
 import { motion } from 'framer-motion';
-import { Activity, Server, Smartphone, Check, ArrowRight } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const ProductsPage: React.FC = () => {
+const Products: React.FC = () => {
   const { t } = useLanguage();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [location]);
+  const navigate = useNavigate();
 
   const products = [
     {
       id: 'standard',
       name: t.productsPage.items.standard.name,
       desc: t.productsPage.items.standard.desc,
-      features: t.productsPage.items.standard.features,
-      icon: <Activity className="w-12 h-12 text-electric" />,
-      image: "https://picsum.photos/600/400?random=1",
-      badge: "Best Seller"
+      image: "https://images.unsplash.com/photo-1622163642998-1ea3166beae2?q=80&w=2669&auto=format&fit=crop",
+      color: 'text-blue-600',
+      link: '/products/standard'
     },
     {
       id: 'manager',
       name: t.productsPage.items.manager.name,
       desc: t.productsPage.items.manager.desc,
-      features: t.productsPage.items.manager.features,
-      icon: <Server className="w-12 h-12 text-neon" />,
-      image: "https://picsum.photos/600/400?random=2",
-      badge: "Smart Solution"
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2670&auto=format&fit=crop",
+      color: 'text-purple-600',
+      link: '/products/manager'
     },
     {
       id: 'app',
       name: t.productsPage.items.app.name,
       desc: t.productsPage.items.app.desc,
-      features: t.productsPage.items.app.features,
-      icon: <Smartphone className="w-12 h-12 text-pink-500" />,
-      image: "https://picsum.photos/600/400?random=3",
-      badge: "Mobile Platform"
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop",
+      color: 'text-pink-600',
+      link: '/products/app'
     },
   ];
 
   return (
-    <div className="pt-24 min-h-screen bg-dark">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="text-center mb-16">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-4"
-          >
-            {t.productsPage.title}
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-400 text-lg"
-          >
-            {t.productsPage.subtitle}
-          </motion.p>
-        </div>
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+            {t.products.title}
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600">
+            {t.products.subtitle}
+          </p>
+        </motion.div>
 
-        <div className="space-y-32">
+        <div className="grid md:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <section key={product.id} id={product.id} className="scroll-mt-32">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="grid md:grid-cols-2 gap-12 items-center"
-              >
-                {/* Image Side */}
-                <div className={`glass-card rounded-3xl overflow-hidden relative group ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                    <div className="aspect-video relative overflow-hidden">
-                         <img 
-                            src={product.image} 
-                            alt={product.name} 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                         />
-                         <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent"></div>
-                    </div>
-                     {product.badge && (
-                        <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold px-3 py-1 rounded text-xs uppercase tracking-wider shadow-lg">
-                            {product.badge}
-                        </div>
-                     )}
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15, duration: 0.8 }}
+              onClick={() => navigate(product.link)}
+              className="group cursor-pointer"
+            >
+              {/* 제품 카드 */}
+              <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
+                {/* 제품 이미지 */}
+                <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-50 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
-                {/* Content Side */}
-                <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className="p-3 bg-white/5 rounded-2xl border border-white/10">
-                            {product.icon}
-                        </div>
-                        <span className="text-electric font-bold tracking-widest text-sm uppercase">Curing Innos</span>
-                    </div>
-                    
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6">{product.name}</h2>
-                    <p className="text-gray-300 text-lg mb-8 leading-relaxed border-l-4 border-electric/30 pl-6">
-                        {product.desc}
-                    </p>
-                    
-                    <div className="mb-10">
-                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Key Features</h3>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {product.features.map((feature, i) => (
-                                <li key={i} className="flex items-start text-gray-200">
-                                    <Check className="w-5 h-5 text-neon mr-3 flex-shrink-0 mt-0.5" />
-                                    <span className="text-sm font-medium">{feature}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <button className="group flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl font-bold transition-all hover:bg-neon hover:shadow-[0_0_20px_rgba(204,255,0,0.3)]">
-                        Learn More
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                {/* 제품 정보 */}
+                <div className="p-6">
+                  <h3 className={`text-xl md:text-2xl font-bold mb-2 tracking-tight ${product.color}`}>
+                    {product.name}
+                  </h3>
+                  <p className="text-base text-gray-600 mb-4 line-clamp-2">
+                    {product.desc}
+                  </p>
+                  <div className="flex items-center gap-2 text-blue-600 font-medium group-hover:gap-3 transition-all">
+                    <span className="text-sm">{t.products.cta}</span>
+                    <ArrowRight size={16} className="transition-transform" />
+                  </div>
                 </div>
-              </motion.div>
-            </section>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ProductsPage;
+export default Products;

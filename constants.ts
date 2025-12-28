@@ -2,6 +2,7 @@ import { Translation } from './types';
 
 export const DICTIONARY: Record<'ko' | 'en', Translation> = {
   ko: {
+    lang: 'ko' as const,
     nav: {
       brand: '브랜드',
       brandItems: {
@@ -19,13 +20,13 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       resourceItems: {
         guides: '제품 사용 가이드',
         marketing: '홍보 및 안내 자료',
-        company: '회사 소개',
+        company: '회사소개서',
       },
       support: '고객지원',
       supportItems: {
         faq: '자주 묻는 질문',
         manuals: '매뉴얼',
-        board: '게시판',
+        board: '공지사항',
       },
       contact: '문의하기',
     },
@@ -33,6 +34,104 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       title: '테니스의 미래,\nAI 로봇 파트너 iVOLVE와 함께',
       subtitle: '큐링이노스의 자율주행 기술로 완성된 차세대 스마트 코트 솔루션을 경험하세요.',
       cta: '제품 알아보기',
+    },
+    latestNotices: {
+      title: '최신 공지사항',
+      viewAll: '전체 보기',
+      new: 'NEW',
+    },
+    partners: {
+      title: '함께하는 파트너',
+    },
+    stats: {
+      title: '숫자로 보는 큐링이노스',
+      items: [
+        { value: 'CES 2023', label: '혁신상 수상' },
+        { value: '200+', label: '코트 설치' },
+        { value: '98%', label: '고객 만족도' },
+        { value: '100만+', label: '훈련 세션' },
+      ],
+    },
+    features: {
+      title: '왜 iVOLVE인가요?',
+      subtitle: '차세대 테니스 훈련의 핵심',
+      items: [
+        {
+          title: 'AI 자율주행',
+          desc: '첨단 자율주행 기술로 코트 어디든 자유롭게 이동하며 완벽한 훈련 파트너가 됩니다.',
+          icon: '🤖',
+        },
+        {
+          title: '실시간 데이터 분석',
+          desc: '모든 샷을 분석하고 실시간 피드백을 제공하여 빠른 실력 향상을 돕습니다.',
+          icon: '⚡',
+        },
+        {
+          title: 'IoT 통합 관리',
+          desc: '스마트 코트 솔루션으로 조명, 냉난방, 예약까지 모든 것을 한 번에 관리합니다.',
+          icon: '🌐',
+        },
+      ],
+    },
+    products: {
+      title: '제품 라인업',
+      subtitle: '당신에게 맞는 솔루션을 선택하세요',
+      cta: '자세히 보기',
+    },
+    howItWorks: {
+      title: '시작하기 쉽습니다',
+      subtitle: '3단계로 시작하는 스마트 테니스',
+      steps: [
+        {
+          number: '01',
+          title: '간단한 설치',
+          desc: '공사 없이 5분 만에 설치 완료. 코트 어디든 배치하고 전원을 켜기만 하면 됩니다.',
+        },
+        {
+          number: '02',
+          title: 'AI 자동 학습',
+          desc: 'iVOLVE가 코트 환경을 자동으로 인식하고 최적의 설정을 스스로 조정합니다.',
+        },
+        {
+          number: '03',
+          title: '즉시 훈련 시작',
+          desc: '앱에서 원하는 훈련 모드를 선택하고 바로 시작하세요. 24/7 언제든지 가능합니다.',
+        },
+      ],
+    },
+    testimonials: {
+      title: '고객 후기',
+      subtitle: '전문가들이 선택한 iVOLVE',
+      items: [
+        {
+          name: '김민수',
+          role: '프로 테니스 코치',
+          comment: 'iVOLVE 덕분에 훈련 효율이 300% 증가했습니다. 학생들의 실력 향상 속도가 놀랍습니다.',
+          rating: 5,
+        },
+        {
+          name: '이지은',
+          role: '테니스 아카데미 원장',
+          comment: '무인 운영이 가능해져 운영 비용이 50% 절감되었고, 회원들의 만족도도 크게 높아졌습니다.',
+          rating: 5,
+        },
+        {
+          name: '박성호',
+          role: '테니스 동호회 회장',
+          comment: '24시간 언제든지 연습할 수 있어서 정말 편리합니다. 실력도 눈에 띄게 늘었어요!',
+          rating: 5,
+        },
+      ],
+    },
+    press: {
+      title: '언론 보도',
+      subtitle: '주요 언론에서 주목하는 혁신',
+    },
+    finalCta: {
+      title: '지금 시작하세요',
+      subtitle: '테니스 훈련의 새로운 기준, iVOLVE와 함께하세요',
+      primary: '제품 구매하기',
+      secondary: '무료 상담 받기',
     },
     productsPage: {
       title: '제품 소개',
@@ -156,7 +255,7 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       sections: {
         guides: '제품 사용 가이드',
         marketing: '홍보 및 안내 자료',
-        company: '회사 소개',
+        company: '회사소개서',
       },
       items: {
         standard: 'iVOLVE Standard 가이드',
@@ -164,6 +263,21 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
         app: '라켓타임 앱 가이드',
         catalog: '제품 통합 카탈로그',
         companyProfile: '큐링이노스 회사소개서',
+        brandAssets: '브랜드 로고 에셋',
+      },
+      pages: {
+        guides: {
+          label: '문서',
+          subtitle: '제품의 사용 설명서 및 설치 가이드.',
+        },
+        marketing: {
+          label: '미디어 키트',
+          subtitle: '공식 홍보 자료 및 에셋.',
+        },
+        company: {
+          label: '기업',
+          subtitle: '기업 문서 및 보고서.',
+        },
       },
       download: '다운로드'
     },
@@ -172,7 +286,34 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       subtitle: '무엇을 도와드릴까요?',
       faq: 'FAQ',
       manuals: '제품 매뉴얼 다운로드',
-      board: '공지사항 및 게시판',
+      board: '공지사항',
+      sections: {
+        faqDesc: '제품과 서비스에 대한 가장 일반적인 질문에 대한 답변을 찾아보세요.',
+        manualsDesc: 'iVOLVE 시리즈에 대한 사용 설명서와 기술 문서를 다운로드하세요.',
+        boardDesc: '큐링이노스의 최신 소식과 공지사항을 확인하세요.',
+      },
+      contactSection: {
+        title: '직접 도움이 필요하신가요?',
+        subtitle: '지원팀에 직접 문의하세요.',
+        button: '지원 문의하기',
+      },
+      pages: {
+        faq: {
+          subtitle: '자주 묻는 질문',
+          empty: '이 카테고리에 FAQ가 없습니다.',
+        },
+        manuals: {
+          subtitle: '기술 문서 다운로드',
+          empty: '이 카테고리에 매뉴얼이 없습니다.',
+          all: '전체',
+        },
+        board: {
+          subtitle: '공지사항',
+          date: '날짜',
+          title: '제목',
+          author: '작성자',
+        },
+      },
       faqItems: [
         { category: 'Service', q: '제품의 보증 기간은 어떻게 되나요?', a: '기본 보증 기간은 6개월이며, 이후 유상 수리가 가능합니다.' },
         { category: 'Delivery', q: '배송까지 얼마나 걸리나요?', a: '주문 제작 방식으로 약 2주에서 4주 정도 소요됩니다.' },
@@ -216,11 +357,37 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       },
     },
     footer: {
-      privacy: '개인정보 처리방침 및 법적고지',
+      disclaimers: [
+        '자율주행 기능은 평평하고 표준적인 하드 또는 클레이 코트 표면이 필요합니다.',
+        'iVOLVE Manager 구독 서비스는 분기별로 청구됩니다.',
+      ],
+      sections: {
+        shopLearn: '제품 및 서비스',
+        resources: '자료',
+        support: '지원',
+        company: '회사',
+      },
+      links: {
+        standard: 'iVOLVE Standard',
+        manager: 'iVOLVE Manager',
+        app: '라켓타임 앱',
+        guides: '사용자 가이드',
+        mediaKit: '미디어 키트',
+        faq: 'FAQ',
+        manuals: '매뉴얼',
+        contactUs: '문의하기',
+        about: '큐링이노스 소개',
+        newsroom: '공지사항',
+        partnerships: '파트너십',
+      },
+      moreWays: '더 많은 구매 방법:',
+      contactAction: '문의하기',
+      or: '또는',
+      call: '전화',
+      privacy: '개인정보 처리방침',
       terms: '이용약관',
-      news: '새 소식',
-      contactLink: '문의하기',
-      inquiryLabel: '제품 문의',
+      legal: '법적 고지',
+      siteMap: '사이트맵',
       companyName: '주식회사 큐링이노스',
       owner: '대표 : 권예찬',
       bizId: '사업자등록번호 : 868-88-02057',
@@ -229,6 +396,7 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
     }
   },
   en: {
+    lang: 'en' as const,
     nav: {
       brand: 'Brand',
       brandItems: {
@@ -252,7 +420,7 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       supportItems: {
         faq: 'FAQ',
         manuals: 'Manuals',
-        board: 'Board',
+        board: 'Notice',
       },
       contact: 'Contact Us',
     },
@@ -260,6 +428,104 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       title: 'The Future of Tennis:\nMeet iVOLVE, Your AI Robot Partner',
       subtitle: "Experience the next-generation smart court solution powered by Curing Innos' autonomous driving technology.",
       cta: 'Explore Products',
+    },
+    latestNotices: {
+      title: 'Latest Announcements',
+      viewAll: 'View All',
+      new: 'NEW',
+    },
+    partners: {
+      title: 'Trusted Partners',
+    },
+    stats: {
+      title: 'Curing Innos by the Numbers',
+      items: [
+        { value: 'CES 2023', label: 'Innovation Award' },
+        { value: '200+', label: 'Courts Installed' },
+        { value: '98%', label: 'Customer Satisfaction' },
+        { value: '1M+', label: 'Training Sessions' },
+      ],
+    },
+    features: {
+      title: 'Why iVOLVE?',
+      subtitle: 'The Future of Tennis Training',
+      items: [
+        {
+          title: 'AI Autonomous Driving',
+          desc: 'Advanced autonomous technology allows free movement anywhere on the court, becoming the perfect training partner.',
+          icon: '🤖',
+        },
+        {
+          title: 'Real-time Data Analysis',
+          desc: 'Analyzes every shot and provides real-time feedback to help you improve faster.',
+          icon: '⚡',
+        },
+        {
+          title: 'IoT Integration',
+          desc: 'Smart court solution manages everything from lighting to HVAC and reservations in one place.',
+          icon: '🌐',
+        },
+      ],
+    },
+    products: {
+      title: 'Product Lineup',
+      subtitle: 'Choose the solution that fits you',
+      cta: 'Learn More',
+    },
+    howItWorks: {
+      title: 'Easy to Get Started',
+      subtitle: 'Start Smart Tennis in 3 Steps',
+      steps: [
+        {
+          number: '01',
+          title: 'Simple Setup',
+          desc: 'Install in 5 minutes without construction. Just place it anywhere on the court and turn it on.',
+        },
+        {
+          number: '02',
+          title: 'AI Auto Learning',
+          desc: 'iVOLVE automatically recognizes the court environment and adjusts optimal settings by itself.',
+        },
+        {
+          number: '03',
+          title: 'Start Training Immediately',
+          desc: 'Select your desired training mode from the app and start right away. Available 24/7 anytime.',
+        },
+      ],
+    },
+    testimonials: {
+      title: 'Customer Reviews',
+      subtitle: 'Chosen by Professionals',
+      items: [
+        {
+          name: 'John Smith',
+          role: 'Pro Tennis Coach',
+          comment: 'Training efficiency increased by 300% thanks to iVOLVE. The speed of student improvement is amazing.',
+          rating: 5,
+        },
+        {
+          name: 'Emily Davis',
+          role: 'Tennis Academy Director',
+          comment: 'Unmanned operation reduced operating costs by 50%, and member satisfaction has greatly increased.',
+          rating: 5,
+        },
+        {
+          name: 'Michael Park',
+          role: 'Tennis Club President',
+          comment: 'Being able to practice 24/7 is really convenient. My skills have noticeably improved!',
+          rating: 5,
+        },
+      ],
+    },
+    press: {
+      title: 'In the Press',
+      subtitle: 'Innovation Recognized by Major Media',
+    },
+    finalCta: {
+      title: 'Get Started Today',
+      subtitle: 'The New Standard in Tennis Training. Join iVOLVE',
+      primary: 'Buy Now',
+      secondary: 'Free Consultation',
     },
     productsPage: {
       title: 'Our Products',
@@ -391,6 +657,21 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
         app: 'Racket Time App Guide',
         catalog: 'Product Catalog',
         companyProfile: 'Company Introduction',
+        brandAssets: 'Brand Logo Assets',
+      },
+      pages: {
+        guides: {
+          label: 'Documentation',
+          subtitle: 'User manuals and installation guides for our products.',
+        },
+        marketing: {
+          label: 'Media Kit',
+          subtitle: 'Official promotional materials and assets.',
+        },
+        company: {
+          label: 'Corporate',
+          subtitle: 'Corporate documents and reports.',
+        },
       },
       download: 'Download'
     },
@@ -399,7 +680,34 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       subtitle: 'How can we help you?',
       faq: 'FAQ',
       manuals: 'Download Manuals',
-      board: 'Notice & Board',
+      board: 'Notice',
+      sections: {
+        faqDesc: 'Find answers to the most common questions about our products and services.',
+        manualsDesc: 'Download user guides and technical documentation for iVOLVE series.',
+        boardDesc: 'Check out the latest news and announcements from Curing Innos.',
+      },
+      contactSection: {
+        title: 'Need direct help?',
+        subtitle: 'Contact our support team directly for assistance.',
+        button: 'Contact Support',
+      },
+      pages: {
+        faq: {
+          subtitle: 'Frequently Asked Questions',
+          empty: 'No FAQs found in this category.',
+        },
+        manuals: {
+          subtitle: 'Download technical documentation',
+          empty: 'No manuals found in this category.',
+          all: 'All',
+        },
+        board: {
+          subtitle: 'Announcements',
+          date: 'Date',
+          title: 'Title',
+          author: 'Author',
+        },
+      },
       faqItems: [
         { category: 'Service', q: 'What is the warranty period?', a: 'Standard warranty is 6 months, paid service available afterwards.' },
         { category: 'Delivery', q: 'How long does delivery take?', a: 'It takes about 2-4 weeks as it is made to order.' },
@@ -443,11 +751,37 @@ export const DICTIONARY: Record<'ko' | 'en', Translation> = {
       },
     },
     footer: {
-      privacy: 'Privacy Policy & Legal Notice',
-      terms: 'Terms of Service',
-      news: 'News',
-      contactLink: 'Contact Us',
-      inquiryLabel: 'Product Inquiry',
+      disclaimers: [
+        'Autonomous driving features require a flat, standard hard or clay court surface.',
+        'Subscription services for iVOLVE Manager are billed quarterly.',
+      ],
+      sections: {
+        shopLearn: 'Shop and Learn',
+        resources: 'Resources',
+        support: 'Support',
+        company: 'Company',
+      },
+      links: {
+        standard: 'iVOLVE Standard',
+        manager: 'iVOLVE Manager',
+        app: 'Racket Time App',
+        guides: 'User Guides',
+        mediaKit: 'Media Kit',
+        faq: 'FAQ',
+        manuals: 'Manuals',
+        contactUs: 'Contact Us',
+        about: 'About Curing Innos',
+        newsroom: 'Announcements',
+        partnerships: 'Partnerships',
+      },
+      moreWays: 'More ways to shop:',
+      contactAction: 'Contact us',
+      or: 'or call',
+      call: '',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
+      legal: 'Legal',
+      siteMap: 'Site Map',
       companyName: 'Curing Innos Inc.',
       owner: 'CEO : Yechan Kwon',
       bizId: 'Business Registration : 868-88-02057',

@@ -64,22 +64,22 @@ const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || mobileMenuOpen || hoveredMenu 
-          ? 'nav-blur py-3' 
-          : 'bg-white/50 backdrop-blur-sm py-5'
+          ? 'bg-white backdrop-blur-xl py-3 shadow-lg border-b border-gray-200' 
+          : 'bg-white/95 backdrop-blur-md py-4 shadow-sm'
       }`}
       onMouseLeave={() => setHoveredMenu(null)}
     >
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 cursor-pointer group relative z-50" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <div className="w-2 h-2 bg-neon rounded-full group-hover:scale-125 transition-transform shadow-[0_0_10px_#CCFF00]"></div>
+          <div className="w-2.5 h-2.5 bg-neon rounded-full group-hover:scale-125 transition-transform shadow-[0_0_15px_#CCFF00]"></div>
           <span className="text-xl font-bold tracking-tight text-black">
             Curing Innos
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {menuItems.map((item) => (
             <div 
               key={item.label} 
@@ -88,9 +88,9 @@ const Header: React.FC = () => {
             >
               <Link
                 to={item.href}
-                className={`text-[12px] font-medium transition-colors ${
+                className={`text-[13px] font-semibold transition-colors px-2 py-1 rounded-md ${
                     location.pathname.startsWith(item.href) || (item.submenus && item.submenus.some(sub => location.pathname === sub.href))
-                    ? 'text-black font-semibold' : 'text-gray-600 hover:text-black'
+                    ? 'text-black bg-gray-100' : 'text-gray-700 hover:text-black hover:bg-gray-50'
                 }`}
               >
                 {item.label}
@@ -104,13 +104,13 @@ const Header: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 5 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-10 left-1/2 -translate-x-1/2 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-gray-100 shadow-xl z-[60] overflow-hidden py-1"
+                    className="absolute top-10 left-1/2 -translate-x-1/2 w-52 bg-white backdrop-blur-xl rounded-xl border-2 border-gray-200 shadow-2xl z-[60] overflow-hidden py-2"
                   >
                     {item.submenus.map((sub) => (
                       <Link
                         key={sub.label}
                         to={sub.href}
-                        className="block px-4 py-2 text-[12px] text-gray-600 hover:text-black hover:bg-gray-50 transition-colors"
+                        className="block px-4 py-2.5 text-[13px] font-semibold text-gray-800 hover:text-black hover:bg-gray-100 transition-colors"
                         onClick={() => setHoveredMenu(null)}
                       >
                         {sub.label}
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={toggleLanguage}
-            className="text-[11px] font-bold text-gray-500 hover:text-black transition-colors uppercase tracking-wider border border-gray-200 px-2 py-1 rounded hover:border-black"
+            className="text-[11px] font-bold text-gray-700 hover:text-black transition-all uppercase tracking-wider border-2 border-gray-300 hover:border-black px-3 py-1.5 rounded-md"
           >
             {language === 'ko' ? 'KR' : 'EN'}
           </button>
@@ -135,7 +135,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center gap-4 relative z-50">
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-black p-2">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-black p-2 hover:bg-gray-100 rounded-md transition-colors">
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -148,26 +148,26 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-white/95 backdrop-blur-xl z-40 flex flex-col pt-24 px-8 overflow-y-auto"
+            className="fixed inset-0 bg-white/98 backdrop-blur-xl z-40 flex flex-col pt-24 px-8 overflow-y-auto"
           >
             <nav className="flex flex-col gap-6">
               {menuItems.map((item, idx) => (
-                <div key={item.label} className="flex flex-col gap-3 border-b border-gray-100 pb-4">
+                <div key={item.label} className="flex flex-col gap-3 border-b border-gray-200 pb-4">
                     <Link
                     to={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl font-bold text-left text-black"
+                    className="text-2xl font-bold text-left text-black hover:text-electric transition-colors"
                     >
                     {item.label}
                     </Link>
                     {item.submenus && (
-                        <div className="flex flex-col gap-3 pl-2">
+                        <div className="flex flex-col gap-3 pl-4">
                             {item.submenus.map(sub => (
                                 <Link
                                     key={sub.label}
                                     to={sub.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="text-gray-500 text-sm font-medium hover:text-neon transition-colors"
+                                    className="text-gray-600 text-sm font-medium hover:text-black transition-colors"
                                 >
                                     {sub.label}
                                 </Link>
@@ -178,7 +178,7 @@ const Header: React.FC = () => {
               ))}
             </nav>
             <div className="mt-8 flex gap-4">
-                 <button onClick={toggleLanguage} className="text-sm font-bold text-black border border-gray-200 px-4 py-2 rounded">
+                 <button onClick={toggleLanguage} className="text-sm font-bold text-black border-2 border-gray-300 hover:border-black px-4 py-2 rounded-md transition-all">
                     Language: {language.toUpperCase()}
                  </button>
             </div>

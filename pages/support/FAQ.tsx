@@ -16,11 +16,11 @@ const FAQPage: React.FC = () => {
   }, [activeCategory, t.support.faqItems]);
 
   return (
-    <div className="pt-32 min-h-screen bg-dark">
+    <div className="pt-32 min-h-screen bg-dark text-white">
       <div className="max-w-4xl mx-auto px-6 pb-24">
         <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">{t.support.faq}</h1>
-            <p className="text-gray-400">Frequently Asked Questions</p>
+            <h1 className="text-4xl font-bold mb-4 text-white">{t.support.faq}</h1>
+            <p className="text-gray-300">{t.support.pages.faq.subtitle}</p>
         </div>
 
         {/* Category Tabs */}
@@ -32,7 +32,7 @@ const FAQPage: React.FC = () => {
                     className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
                         activeCategory === cat 
                         ? 'bg-electric text-white shadow-lg shadow-electric/25' 
-                        : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
+                        : 'bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white'
                     }`}
                 >
                     {cat}
@@ -56,9 +56,9 @@ const FAQPage: React.FC = () => {
                     >
                         <div>
                              <span className="inline-block text-xs font-bold text-electric uppercase mb-1 tracking-wider">{item.category}</span>
-                             <span className="block font-bold text-lg">{item.q}</span>
+                             <span className="block font-bold text-lg text-white">{item.q}</span>
                         </div>
-                        {openIndex === idx ? <Minus className="text-electric flex-shrink-0 ml-4" /> : <Plus className="text-gray-400 flex-shrink-0 ml-4" />}
+                        {openIndex === idx ? <Minus className="text-electric flex-shrink-0 ml-4" /> : <Plus className="text-gray-300 flex-shrink-0 ml-4" />}
                     </button>
                     <AnimatePresence>
                         {openIndex === idx && (
@@ -68,7 +68,7 @@ const FAQPage: React.FC = () => {
                                 exit={{ height: 0, opacity: 0 }}
                                 className="overflow-hidden"
                             >
-                                <div className="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5">
+                                <div className="p-6 pt-0 text-gray-300 leading-relaxed border-t border-white/5">
                                     {item.a}
                                 </div>
                             </motion.div>
@@ -77,8 +77,8 @@ const FAQPage: React.FC = () => {
                 </motion.div>
             ))}
             {filteredItems.length === 0 && (
-                <div className="text-center py-12 text-gray-500">
-                    No FAQs found in this category.
+                <div className="text-center py-12 text-gray-400">
+                    {t.support.pages.faq.empty}
                 </div>
             )}
         </div>

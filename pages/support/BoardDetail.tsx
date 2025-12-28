@@ -32,9 +32,9 @@ const BoardDetailPage: React.FC = () => {
 
         <article className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12">
             <header className="mb-8 border-b border-white/10 pb-8">
-                <span className="inline-block bg-electric/20 text-electric text-xs font-bold px-3 py-1 rounded-full mb-4">Notice</span>
-                <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
-                <div className="flex items-center gap-6 text-sm text-gray-400">
+                <span className="inline-block bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4">Notice</span>
+                <h1 className="text-3xl font-bold mb-6 text-white">{post.title}</h1>
+                <div className="flex items-center gap-6 text-sm text-gray-300">
                     <div className="flex items-center gap-2">
                         <Calendar size={16} />
                         <span>{post.date}</span>
@@ -46,15 +46,17 @@ const BoardDetailPage: React.FC = () => {
                 </div>
             </header>
             
-            <div className="prose prose-invert prose-lg max-w-none text-gray-300 whitespace-pre-line leading-relaxed">
-                {post.content}
+            <div className="prose prose-invert prose-lg max-w-none whitespace-pre-line leading-relaxed">
+                <div className="text-white text-base leading-relaxed">
+                    {post.content}
+                </div>
             </div>
         </article>
 
         <div className="mt-12 flex justify-between">
             <button 
                 onClick={() => navigate('/support/board')}
-                className="px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition font-bold"
+                className="px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition font-bold text-white"
             >
                 List
             </button>

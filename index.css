@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-dark font-sans overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.015em;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Selection */
+  ::selection {
+    @apply bg-neon text-black;
+  }
+}
+
+@layer components {
+  /* Premium Light Glass Card */
+  .glass-card {
+    @apply bg-white/65 backdrop-blur-xl border border-black/5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply bg-white/85 border-black/10 -translate-y-0.5 shadow-[0_8px_32px_rgba(0,0,0,0.08)];
+  }
+  
+  /* Navigation Blur (White Frost) */
+  .nav-blur {
+    @apply bg-white/85 backdrop-blur-xl border-b border-black/5;
+  }
+  
+  /* Phone Frame Utility */
+  .phone-frame {
+    box-shadow: 
+      0 0 0 2px #d1d1d1,
+      0 0 0 4px #e5e5e5,
+      0 20px 40px rgba(0,0,0,0.1);
+  }
+}
+
+@layer utilities {
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-white;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+/* Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+

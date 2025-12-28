@@ -57,9 +57,11 @@ const ContactForm: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Use API service
+      const { contactService } = await import('../services/contact.service');
+      await contactService.submitContactForm(formData);
+      
       setToastMessage(t.contact.form.success);
       setFormData({
         name: '',
@@ -77,7 +79,12 @@ const ContactForm: React.FC = () => {
         website: '',
       });
       setErrors({});
-    }, 1500);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setToastMessage(language === 'ko' ? '문의 전송에 실패했습니다. 다시 시도해주세요.' : 'Failed to submit inquiry. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses = "w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-black focus:outline-none focus:border-electric focus:ring-1 focus:ring-electric transition-all placeholder-gray-400";

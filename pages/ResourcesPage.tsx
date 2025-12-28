@@ -32,17 +32,17 @@ const ResourcesPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-24 min-h-screen bg-dark">
+    <div className="pt-24 min-h-screen bg-dark text-white">
       {/* Hero */}
       <div className="max-w-7xl mx-auto px-6 py-12 text-center mb-12">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-4"
+          className="text-4xl md:text-5xl font-bold mb-4 text-white"
         >
           {t.resourcesPage.title}
         </motion.h1>
-        <p className="text-gray-400 text-lg">{t.resourcesPage.subtitle}</p>
+        <p className="text-gray-300 text-lg">{t.resourcesPage.subtitle}</p>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 pb-24">
@@ -53,13 +53,13 @@ const ResourcesPage: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="glass-card p-8 rounded-3xl h-full border border-white/10 hover:border-electric/50 transition-colors"
+                        className="glass-card p-8 rounded-3xl h-full border border-white/10 hover:border-electric/50 transition-colors bg-white/5"
                     >
-                        <div className="mb-6 p-4 bg-white/5 rounded-2xl w-fit group-hover:scale-110 transition-transform">
+                        <div className="mb-6 p-4 bg-white/10 rounded-2xl w-fit group-hover:scale-110 transition-transform">
                             {section.icon}
                         </div>
-                        <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
-                        <p className="text-gray-400 mb-6">{section.desc}</p>
+                        <h2 className="text-2xl font-bold mb-4 text-white">{section.title}</h2>
+                        <p className="text-gray-200 mb-6 leading-relaxed">{section.desc}</p>
                         <span className="text-electric font-bold text-sm tracking-widest uppercase group-hover:underline">Explore &rarr;</span>
                     </motion.div>
                 </Link>
