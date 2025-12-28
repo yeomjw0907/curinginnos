@@ -145,42 +145,48 @@ const Header: React.FC = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-white/98 backdrop-blur-xl z-40 flex flex-col pt-24 px-8 overflow-y-auto"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white border-t border-gray-200 overflow-hidden"
           >
-            <nav className="flex flex-col gap-6">
-              {menuItems.map((item, idx) => (
-                <div key={item.label} className="flex flex-col gap-3 border-b border-gray-200 pb-4">
+            <div className="max-w-[1200px] mx-auto px-6 py-6">
+              <nav className="flex flex-col gap-4">
+                {menuItems.map((item) => (
+                  <div key={item.label} className="flex flex-col gap-2 border-b border-gray-100 pb-4 last:border-0">
                     <Link
-                    to={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-2xl font-bold text-left text-black hover:text-electric transition-colors"
+                      to={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-xl font-bold text-black hover:text-blue-600 transition-colors"
                     >
-                    {item.label}
+                      {item.label}
                     </Link>
                     {item.submenus && (
-                        <div className="flex flex-col gap-3 pl-4">
-                            {item.submenus.map(sub => (
-                                <Link
-                                    key={sub.label}
-                                    to={sub.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="text-gray-600 text-sm font-medium hover:text-black transition-colors"
-                                >
-                                    {sub.label}
-                                </Link>
-                            ))}
-                        </div>
+                      <div className="flex flex-col gap-2 pl-4 mt-2">
+                        {item.submenus.map(sub => (
+                          <Link
+                            key={sub.label}
+                            to={sub.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-gray-600 text-base font-medium hover:text-black transition-colors"
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
                     )}
-                </div>
-              ))}
-            </nav>
-            <div className="mt-8 flex gap-4">
-                 <button onClick={toggleLanguage} className="text-sm font-bold text-black border-2 border-gray-300 hover:border-black px-4 py-2 rounded-md transition-all">
-                    Language: {language.toUpperCase()}
-                 </button>
+                  </div>
+                ))}
+              </nav>
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <button 
+                  onClick={toggleLanguage} 
+                  className="text-sm font-bold text-gray-700 hover:text-black border-2 border-gray-300 hover:border-black px-4 py-2 rounded-md transition-all uppercase tracking-wider"
+                >
+                  {language === 'ko' ? 'KR' : 'EN'}
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
